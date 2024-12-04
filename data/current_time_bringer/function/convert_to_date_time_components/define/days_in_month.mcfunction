@@ -1,0 +1,12 @@
+scoreboard players set target.current_time_bringer.days_in_month.1 objective.current_time_bringer.temporary_value 31
+scoreboard players set target.current_time_bringer.days_in_month.2 objective.current_time_bringer.temporary_value 28
+scoreboard players set target.current_time_bringer.days_in_month.3 objective.current_time_bringer.temporary_value 31
+scoreboard players set target.current_time_bringer.days_in_month.4 objective.current_time_bringer.temporary_value 30
+scoreboard players set target.current_time_bringer.days_in_month.5 objective.current_time_bringer.temporary_value 31
+scoreboard players set target.current_time_bringer.days_in_month.6 objective.current_time_bringer.temporary_value 30
+scoreboard players set target.current_time_bringer.days_in_month.7 objective.current_time_bringer.temporary_value 31
+scoreboard players set target.current_time_bringer.days_in_month.8 objective.current_time_bringer.temporary_value 31
+scoreboard players set target.current_time_bringer.days_in_month.9 objective.current_time_bringer.temporary_value 30
+scoreboard players set target.current_time_bringer.days_in_month.10 objective.current_time_bringer.temporary_value 31
+scoreboard players set target.current_time_bringer.days_in_month.11 objective.current_time_bringer.temporary_value 30
+scoreboard players set target.current_time_bringer.days_in_month.12 objective.current_time_bringer.temporary_value 31

@@ -1,0 +1,16 @@
+scoreboard players set target.current_time_bringer.is_leap_year objective.current_time_bringer.temporary_value 0
+
+scoreboard players operation target.current_time_bringer.year_00 objective.current_time_bringer.temporary_value = target.current_time_bringer.year objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.year_01 objective.current_time_bringer.temporary_value = target.current_time_bringer.year objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.year_02 objective.current_time_bringer.temporary_value = target.current_time_bringer.year objective.current_time_bringer.temporary_value
+
+scoreboard players set target.current_time_bringer.4 objective.current_time_bringer.temporary_value 4
+scoreboard players set target.current_time_bringer.100 objective.current_time_bringer.temporary_value 100
+scoreboard players set target.current_time_bringer.400 objective.current_time_bringer.temporary_value 400
+
+scoreboard players operation target.current_time_bringer.year_00 objective.current_time_bringer.temporary_value %= target.current_time_bringer.4 objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.year_01 objective.current_time_bringer.temporary_value %= target.current_time_bringer.100 objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.year_02 objective.current_time_bringer.temporary_value %= target.current_time_bringer.400 objective.current_time_bringer.temporary_value
+
+execute if score target.current_time_bringer.year_00 objective.current_time_bringer.temporary_value matches 0 unless score target.current_time_bringer.year_01 objective.current_time_bringer.temporary_value matches 0 run scoreboard players set target.current_time_bringer.is_leap_year objective.current_time_bringer.temporary_value 1
+execute unless score target.current_time_bringer.is_leap_year objective.current_time_bringer.temporary_value matches 1 if score target.current_time_bringer.year_02 objective.current_time_bringer.temporary_value matches 0 run scoreboard players set target.current_time_bringer.is_leap_year objective.current_time_bringer.temporary_value 1

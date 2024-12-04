@@ -1,0 +1,4 @@
+$scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value -= target.current_time_bringer.days_in_month.$(month) objective.current_time_bringer.temporary_value
+scoreboard players add target.current_time_bringer.month objective.current_time_bringer.temporary_value 1
+execute store result storage current_time_bringer:current_time convert_to_date_time_components.month int 1 run scoreboard players get target.current_time_bringer.month objective.current_time_bringer.temporary_value
+function current_time_bringer:convert_to_date_time_components/calculate_taking_into_account_days_in_month/tick with storage current_time_bringer:current_time convert_to_date_time_components

@@ -1,0 +1,4 @@
+scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value = target.current_time_bringer.unix objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.remaining_seconds objective.current_time_bringer.temporary_value = target.current_time_bringer.unix objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value /= target.current_time_bringer.seconds_in_day objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.remaining_seconds objective.current_time_bringer.temporary_value %= target.current_time_bringer.seconds_in_day objective.current_time_bringer.temporary_value
