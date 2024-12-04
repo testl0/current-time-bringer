@@ -10,13 +10,13 @@ To fetch the current real-time, run the command `function current_time_bringer:b
 
 Within approximately one second, the current year, month, day, hour, minute, and second will be saved to storage `current_time_bringer:current_time`: 
 
-```json
+```
 {current_time: {month: 5, hour: 11, year: 2015, day: 30, minute: 23, second: 2}}
 ```
 
 If your system is offline, an error message will be returned:
 
-```json
+```
 {data: {message: '{"color": "red", "fallback": "Can\'t get current time; it looks like the system\'s offline.", "translate": "message.current_time_bringer.failed", "type": "translatable"}'}}
 ```
 
