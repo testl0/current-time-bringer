@@ -1,6 +1,6 @@
 # Current Time Bringer
 
-**Note:** This data pack will no longer be available after Nov 20, 2286 at 03:46:40.
+**Note:** This data pack will no longer be available after Jan 18, 2038 at 13:14:07.
 
 Current Time Bringer is a data pack for Minecraft that enables you to fetch the current real-world date and time.
 
