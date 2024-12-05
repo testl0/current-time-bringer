@@ -2,11 +2,11 @@
 
 **Note:** This data pack will no longer be available after Nov 20, 2286 at 17:46:40.
 
-Current Time Bringer is a data pack for Minecraft that enables you to fetch the current real-time.
+Current Time Bringer is a data pack for Minecraft that enables you to fetch the current real-world date and time.
 
 ## How to Use
 
-To fetch the current time, run the command `function current_time_bringer:bring`.
+To fetch the current date and time, run the command `function current_time_bringer:bring`.
 
 Within approximately one second, the current year, month, day, hour, minute, and second will be saved to storage `current_time_bringer:current_time`: 
 
@@ -17,10 +17,10 @@ Within approximately one second, the current year, month, day, hour, minute, and
 If your system is offline, an error message will be returned:
 
 ```
-{data: {message: '{"color": "red", "fallback": "Can\'t get current time; it looks like the system\'s offline.", "translate": "message.current_time_bringer.failed", "type": "translatable"}'}}
+{data: {message: '{"color": "red", "fallback": "Can\'t fetch current date and time; it looks like the system\'s offline.", "translate": "message.current_time_bringer.failed", "type": "translatable"}'}}
 ```
 
-**Note:** Fetching the current time can only be performed once per session. To fetch the current time again, you must rejoin the world or restart the server.
+**Note:** Fetching the current date and time can only be performed once per session. To fetch the current date and time again, you must rejoin the world or restart the server.
 
 ## Time Zone
 
