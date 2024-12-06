@@ -91,4 +91,4 @@ execute if data storage current_time_bringer:current_time data{separated_raw: "8
 execute if data storage current_time_bringer:current_time data{separated_raw: "9"} run data modify storage current_time_bringer:current_time data.string_for_appending set value "111101"
 execute if data storage current_time_bringer:current_time data{separated_raw: "+"} run data modify storage current_time_bringer:current_time data.string_for_appending set value "111110"
 execute if data storage current_time_bringer:current_time data{separated_raw: "/"} run data modify storage current_time_bringer:current_time data.string_for_appending set value "111111"
-execute if data storage current_time_bringer:current_time data{separated_raw: "="} run data modify storage current_time_bringer:current_time data.string_for_appending set value ""
+data remove storage current_time_bringer:current_time data.separated_raw

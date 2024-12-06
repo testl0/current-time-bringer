@@ -27,7 +27,6 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-data remove storage current_time_bringer:current_time data.binary
-data remove storage current_time_bringer:current_time data.unix
-data modify storage current_time_bringer:current_time data.message set value '{"color": "red", "fallback": "Can\'t fetch current date and time; it looks like the system\'s offline.", "translate": "message.current_time_bringer.failed", "type": "translatable"}'
+data remove storage current_time_bringer:current_time data
+data modify storage current_time_bringer:current_time data.message set value '{"color": "red", "fallback": "Can\'t fetch the current date and time; it looks like the system\'s offline.", "translate": "message.current_time_bringer.failed", "type": "translatable"}'
 kill @e[tag= tag.current_time_bringer.item]

@@ -1,6 +1,6 @@
 # Current Time Bringer
 
-**Note:** This data pack will no longer be available after Jan 18, 2038 at 13:14:07.
+**Note:** This data pack will no longer be available after Jan 18, 2038 at 13:14:08 (UTC).
 
 Current Time Bringer is a data pack for Minecraft that enables you to fetch the current real-world date and time.
 
@@ -8,7 +8,7 @@ Current Time Bringer is a data pack for Minecraft that enables you to fetch the 
 
 To fetch the current date and time, run the command `function current_time_bringer:bring`.
 
-Within approximately one second, the current year, month, day, hour, minute, and second will be saved to storage `current_time_bringer:current_time`: 
+Within approximately one second, the current year, month, day, hour, minute, and second will be saved as integers to storage `current_time_bringer:current_time`:
 
 ```
 {current_time: {month: 5, hour: 11, year: 2015, day: 30, minute: 23, second: 2}}
