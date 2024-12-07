@@ -27,9 +27,4 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-data remove storage current_time_bringer:current_time current_time
-data remove storage current_time_bringer:current_time data
-data modify storage current_time_bringer:current_time data.binary set value ""
-data modify storage current_time_bringer:current_time data.unix set value ""
-summon minecraft:item ~ ~ ~ {Age: -32768, Invulnerable: true, Item: {count: 1, components: {"minecraft:profile": {"name": "text_format"}}, id: "minecraft:player_head"}, NoGravity: true, PickupDelay: 32767, Tags: ["tag.current_time_bringer.item"]}
-function current_time_bringer:fetch_unix/repeat_detection
+execute unless entity @n[tag= tag.current_time_bringer.item] run function current_time_bringer:fetch_unix_time/initialize

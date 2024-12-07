@@ -28,6 +28,6 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 data modify storage current_time_bringer:current_time data.raw set from entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".properties[].value
-data modify storage current_time_bringer:current_time data.raw set string storage current_time_bringer:current_time data.raw 24 38
+data modify storage current_time_bringer:current_time data.raw set string storage current_time_bringer:current_time data.raw 24 42
 kill @e[tag= tag.current_time_bringer.item]
-function current_time_bringer:fetch_unix/repeat_raw_separation
+function current_time_bringer:fetch_unix_time/repeat_raw_separation

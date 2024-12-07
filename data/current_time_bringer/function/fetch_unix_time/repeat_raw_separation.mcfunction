@@ -27,9 +27,9 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-function current_time_bringer:convert_to_date_time_components/define/is_leap_year
-execute if score target.current_time_bringer.is_leap_year objective.current_time_bringer.temporary_value matches 1 if score target.current_time_bringer.days objective.current_time_bringer.temporary_value >= target.current_time_bringer.leap_year_days objective.current_time_bringer.temporary_value run function current_time_bringer:convert_to_date_time_components/convert_days_to_year_and_month/is_leap_year
-execute if score target.current_time_bringer.is_leap_year objective.current_time_bringer.temporary_value matches 1 unless score target.current_time_bringer.days objective.current_time_bringer.temporary_value >= target.current_time_bringer.leap_year_days objective.current_time_bringer.temporary_value run scoreboard players set target.current_time_bringer.stop_loop objective.current_time_bringer.temporary_value 1
-execute unless score target.current_time_bringer.is_leap_year objective.current_time_bringer.temporary_value matches 1 run function current_time_bringer:convert_to_date_time_components/convert_days_to_year_and_month/is_not_leap_year
-
-execute unless score target.current_time_bringer.stop_loop objective.current_time_bringer.temporary_value matches 1 if score target.current_time_bringer.days objective.current_time_bringer.temporary_value >= target.current_time_bringer.days_in_year objective.current_time_bringer.temporary_value run function current_time_bringer:convert_to_date_time_components/convert_days_to_year_and_month/tick
+data modify storage current_time_bringer:current_time data.separated_raw set string storage current_time_bringer:current_time data.raw 0 1
+data modify storage current_time_bringer:current_time data.raw set string storage current_time_bringer:current_time data.raw 1
+function current_time_bringer:fetch_unix_time/convert_to_binary
+function current_time_bringer:fetch_unix_time/concatenate_strings_to_binary with storage current_time_bringer:current_time data
+execute if data storage current_time_bringer:current_time data{raw: ""} run function current_time_bringer:fetch_unix_time/process_before_converting_to_ascii
+execute unless data storage current_time_bringer:current_time data{raw: ""} if data storage current_time_bringer:current_time data.raw run function current_time_bringer:fetch_unix_time/repeat_raw_separation

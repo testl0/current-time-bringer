@@ -27,5 +27,4 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-$data modify storage current_time_bringer:current_time data.unix set value "$(unix)$(string_for_appending)"
-data remove storage current_time_bringer:current_time data.string_for_appending
+$execute if score target.current_time_bringer.days objective.current_time_bringer.temporary_value >= target.current_time_bringer.days_in_month.$(month) objective.current_time_bringer.temporary_value run function current_time_bringer:convert_to_date_and_time_components/calculate_taking_into_account_days_in_month/days_is_greater_than_days_in_month with storage current_time_bringer:current_time convert_to_date_and_time_components

@@ -27,7 +27,5 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value = target.current_time_bringer.unix objective.current_time_bringer.temporary_value
-scoreboard players operation target.current_time_bringer.remaining_seconds objective.current_time_bringer.temporary_value = target.current_time_bringer.unix objective.current_time_bringer.temporary_value
-scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value /= target.current_time_bringer.seconds_in_day objective.current_time_bringer.temporary_value
-scoreboard players operation target.current_time_bringer.remaining_seconds objective.current_time_bringer.temporary_value %= target.current_time_bringer.seconds_in_day objective.current_time_bringer.temporary_value
+$data modify storage current_time_bringer:current_time data.unix_time set value "$(unix_time)$(string_for_appending)"
+data remove storage current_time_bringer:current_time data.string_for_appending

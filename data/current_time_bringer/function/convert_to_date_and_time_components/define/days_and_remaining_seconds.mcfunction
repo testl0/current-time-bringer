@@ -27,10 +27,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-data modify storage current_time_bringer:current_time data.separated_binary set string storage current_time_bringer:current_time data.binary 0 8
-data modify storage current_time_bringer:current_time data.binary set string storage current_time_bringer:current_time data.binary 4
-data modify storage current_time_bringer:current_time data.binary set string storage current_time_bringer:current_time data.binary 4
-function current_time_bringer:fetch_unix/convert_to_ascii
-function current_time_bringer:fetch_unix/concatenate_strings_to_unix with storage current_time_bringer:current_time data
-execute if data storage current_time_bringer:current_time data{binary: ""} run function current_time_bringer:fetch_unix/process_before_converting_to_date_time_components
-execute unless data storage current_time_bringer:current_time data{binary: ""} if data storage current_time_bringer:current_time data.binary run function current_time_bringer:fetch_unix/repeat_binary_separation
+scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value = target.current_time_bringer.unix_time objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.remaining_seconds objective.current_time_bringer.temporary_value = target.current_time_bringer.unix_time objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value /= target.current_time_bringer.seconds_in_day objective.current_time_bringer.temporary_value
+scoreboard players operation target.current_time_bringer.remaining_seconds objective.current_time_bringer.temporary_value %= target.current_time_bringer.seconds_in_day objective.current_time_bringer.temporary_value

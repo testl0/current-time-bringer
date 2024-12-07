@@ -27,6 +27,9 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-execute if entity @n[tag= tag.current_time_bringer.item] if data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".id if data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".properties[].value run function current_time_bringer:fetch_unix/run
-execute if entity @n[tag= tag.current_time_bringer.item] if data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".id unless data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".properties[].value run function current_time_bringer:fetch_unix/failed
-execute if entity @n[tag= tag.current_time_bringer.item] unless data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".id run schedule function current_time_bringer:fetch_unix/repeat_detection 1t append
+data remove storage current_time_bringer:current_time data.binary
+data modify storage current_time_bringer:current_time data.millisecond set string storage current_time_bringer:current_time data.unix_time 10 13
+data modify storage current_time_bringer:current_time data.unix_time set string storage current_time_bringer:current_time data.unix_time 0 10
+scoreboard objectives add objective.current_time_bringer.temporary_value dummy {"fallback": "Temporary Value", "translate": "objective.current_time_bringer.temporary_value", "type": "translatable"}
+function current_time_bringer:convert_to_date_and_time_components/tick with storage current_time_bringer:current_time data
+scoreboard objectives remove objective.current_time_bringer.temporary_value

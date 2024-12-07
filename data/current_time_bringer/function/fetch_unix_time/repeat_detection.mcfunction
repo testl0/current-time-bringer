@@ -27,9 +27,6 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-data modify storage current_time_bringer:current_time data.separated_raw set string storage current_time_bringer:current_time data.raw 0 1
-data modify storage current_time_bringer:current_time data.raw set string storage current_time_bringer:current_time data.raw 1
-function current_time_bringer:fetch_unix/convert_to_binary
-function current_time_bringer:fetch_unix/concatenate_strings_to_binary with storage current_time_bringer:current_time data
-execute if data storage current_time_bringer:current_time data{raw: ""} run function current_time_bringer:fetch_unix/process_before_converting_to_ascii
-execute unless data storage current_time_bringer:current_time data{raw: ""} if data storage current_time_bringer:current_time data.raw run function current_time_bringer:fetch_unix/repeat_raw_separation
+execute if entity @n[tag= tag.current_time_bringer.item] if data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".id if data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".properties[].value run function current_time_bringer:fetch_unix_time/run
+execute if entity @n[tag= tag.current_time_bringer.item] if data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".id unless data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".properties[].value run function current_time_bringer:fetch_unix_time/failed
+execute if entity @n[tag= tag.current_time_bringer.item] unless data entity @n[tag= tag.current_time_bringer.item] Item.components."minecraft:profile".id run schedule function current_time_bringer:fetch_unix_time/repeat_detection 1t append

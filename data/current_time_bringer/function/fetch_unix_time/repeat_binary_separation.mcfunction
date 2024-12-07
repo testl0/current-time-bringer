@@ -27,7 +27,10 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-$scoreboard players operation target.current_time_bringer.days objective.current_time_bringer.temporary_value -= target.current_time_bringer.days_in_month.$(month) objective.current_time_bringer.temporary_value
-scoreboard players add target.current_time_bringer.month objective.current_time_bringer.temporary_value 1
-execute store result storage current_time_bringer:current_time convert_to_date_time_components.month int 1 run scoreboard players get target.current_time_bringer.month objective.current_time_bringer.temporary_value
-function current_time_bringer:convert_to_date_time_components/calculate_taking_into_account_days_in_month/tick with storage current_time_bringer:current_time convert_to_date_time_components
+data modify storage current_time_bringer:current_time data.separated_binary set string storage current_time_bringer:current_time data.binary 0 8
+data modify storage current_time_bringer:current_time data.binary set string storage current_time_bringer:current_time data.binary 4
+data modify storage current_time_bringer:current_time data.binary set string storage current_time_bringer:current_time data.binary 4
+function current_time_bringer:fetch_unix_time/convert_to_ascii
+function current_time_bringer:fetch_unix_time/concatenate_strings_to_unix_time with storage current_time_bringer:current_time data
+execute if data storage current_time_bringer:current_time data{binary: ""} run function current_time_bringer:fetch_unix_time/process_before_converting_to_date_and_time_components
+execute unless data storage current_time_bringer:current_time data{binary: ""} if data storage current_time_bringer:current_time data.binary run function current_time_bringer:fetch_unix_time/repeat_binary_separation

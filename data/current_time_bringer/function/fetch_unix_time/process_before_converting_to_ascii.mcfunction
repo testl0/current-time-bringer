@@ -27,7 +27,5 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-data remove storage current_time_bringer:current_time data.binary
-scoreboard objectives add objective.current_time_bringer.temporary_value dummy {"fallback": "Temporary Value", "translate": "objective.current_time_bringer.temporary_value", "type": "translatable"}
-function current_time_bringer:convert_to_date_time_components/tick with storage current_time_bringer:current_time data
-scoreboard objectives remove objective.current_time_bringer.temporary_value
+data remove storage current_time_bringer:current_time data.raw
+function current_time_bringer:fetch_unix_time/repeat_binary_separation
